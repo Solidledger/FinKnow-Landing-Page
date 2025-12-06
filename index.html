@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FinKnow | Your Money, Made Human.</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --purple-deep: #2b0a47;
+      --purple: #4b0082;
+      --purple-soft: #7b56c5;
+      --white: #ffffff;
+      --muted: rgba(255, 255, 255, 0.82);
+      --card-shadow: 0 24px 60px rgba(30, 6, 62, 0.35);
+      --radius: 18px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: radial-gradient(circle at 25% 20%, #3a1161 0%, var(--purple-deep) 35%), linear-gradient(160deg, var(--purple-deep), var(--purple));
+      color: var(--white);
+      line-height: 1.6;
+      min-height: 100vh;
+      padding: 0;
+    }
+
+    header {
+      padding: 32px 28px 12px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 700;
+      letter-spacing: 0.4px;
+    }
+
+    .brand-mark {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, #4b0082, #7b56c5);
+      display: grid;
+      place-items: center;
+      color: var(--white);
+      font-weight: 800;
+      box-shadow: var(--card-shadow);
+    }
+
+    nav a {
+      color: var(--muted);
+      margin-left: 18px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.2s ease;
+    }
+
+    nav a:hover {
+      color: var(--white);
+    }
+
+    .hero {
+      max-width: 1200px;
+      margin: 40px auto;
+      padding: 0 28px 40px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 36px;
+      align-items: center;
+    }
+
+    .hero-text h1 {
+      font-size: clamp(36px, 5vw, 56px);
+      margin: 0 0 16px;
+      letter-spacing: -0.8px;
+    }
+
+    .hero-text p.lead {
+      font-size: 18px;
+      color: var(--muted);
+      margin: 0 0 20px;
+    }
+
+    .hero-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      background: linear-gradient(135deg, #4b0082, #7b56c5);
+      color: var(--white);
+      padding: 14px 22px;
+      border-radius: 14px;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      font-weight: 700;
+      text-decoration: none;
+      box-shadow: var(--card-shadow);
+      margin: 6px 0;
+    }
+
+    .micro-copy {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .card, .split-card {
+      background: rgba(255, 255, 255, 0.07);
+      border: 1px solid rgba(255, 255, 255, 0.09);
+      border-radius: var(--radius);
+      box-shadow: var(--card-shadow);
+      padding: 24px;
+      backdrop-filter: blur(8px);
+    }
+
+    .section {
+      max-width: 1200px;
+      margin: 0 auto 34px;
+      padding: 0 28px;
+    }
+
+    .section h2 {
+      margin: 0 0 12px;
+      font-size: 28px;
+    }
+
+    .pillars {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 18px;
+    }
+
+    .pillar {
+      background: var(--white);
+      color: var(--purple-deep);
+      border-radius: var(--radius);
+      padding: 18px 18px 16px;
+      box-shadow: var(--card-shadow);
+      border: 1px solid rgba(75, 0, 130, 0.08);
+    }
+
+    .pillar h3 {
+      margin: 0 0 8px;
+      font-size: 18px;
+      color: var(--purple);
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+      align-items: stretch;
+    }
+
+    blockquote {
+      margin: 0;
+      padding: 16px 20px;
+      border-left: 4px solid var(--purple-soft);
+      background: rgba(255, 255, 255, 0.06);
+      border-radius: 12px;
+      color: var(--muted);
+    }
+
+    blockquote strong {
+      color: var(--white);
+    }
+
+    .list-clean {
+      list-style: none;
+      padding: 0;
+      margin: 12px 0 0;
+      color: var(--muted);
+    }
+
+    .list-clean li {
+      margin-bottom: 8px;
+      padding-left: 12px;
+      position: relative;
+    }
+
+    .list-clean li::before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      color: var(--white);
+      opacity: 0.6;
+    }
+
+    .movement {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 12px;
+    }
+
+    .movement-line {
+      background: var(--white);
+      color: var(--purple-deep);
+      padding: 12px 16px;
+      border-radius: var(--radius);
+      font-weight: 600;
+      box-shadow: 0 16px 36px rgba(30, 6, 62, 0.26);
+    }
+
+    .share-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 14px;
+    }
+
+    .share-card {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: var(--radius);
+      padding: 16px;
+      box-shadow: var(--card-shadow);
+      color: var(--white);
+    }
+
+    .share-card h4 {
+      margin: 0 0 8px;
+      font-size: 16px;
+    }
+
+    .cta-final {
+      text-align: center;
+      padding: 36px 24px 64px;
+    }
+
+    .cta-final h3 {
+      margin: 0 0 10px;
+      font-size: 30px;
+    }
+
+    .cta-final p {
+      margin: 0 0 18px;
+      color: var(--muted);
+    }
+
+    .socials {
+      margin-top: 12px;
+      display: flex;
+      justify-content: center;
+      gap: 14px;
+      color: var(--muted);
+      font-weight: 600;
+    }
+
+    @media (max-width: 600px) {
+      header { flex-direction: column; align-items: flex-start; gap: 12px; }
+      nav a { margin-left: 0; margin-right: 14px; }
+      .hero { margin: 20px auto; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="brand">
+      <div class="brand-mark">FK</div>
+      <div>
+        <div>FinKnow</div>
+        <small style="color: var(--muted);">Your Money, Made Human.</small>
+      </div>
+    </div>
+    <nav aria-label="Primary">
+      <a href="#value">Why FinKnow</a>
+      <a href="#founder">Founder</a>
+      <a href="#preview">Preview</a>
+      <a href="#join">Join</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="hero-text">
+      <p class="micro-copy">FinKnow • Purple + White Edition</p>
+      <h1>Your Money, Made Human.</h1>
+      <p class="lead">A warm, AI-guided money companion for people who hustle across cultures. Feel seen, supported, and financially fluent with a dashboard that glows in purple and rests in white.</p>
+      <a class="hero-cta" href="#join">Join Waitlist</a>
+      <p class="micro-copy">Zero spam. All heart. Early friends get the softest launch perks.</p>
+    </div>
+    <div class="card" aria-label="Hero preview">
+      <h3 style="margin-top:0;">What you’ll see</h3>
+      <ul class="list-clean">
+        <li>Oversized FK mark floating above soft-shadow cards.</li>
+        <li>Dashboard tiles that mix deep purple with fresh white space.</li>
+        <li>Teal-free, purple-forward gradients that keep things calm and premium.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="value" class="section">
+    <h2>Why FinKnow feels different</h2>
+    <p class="micro-copy">Clean, premium, modern—powered by cultural intelligence.</p>
+    <div class="pillars">
+      <div class="pillar">
+        <h3>AI Financial Coaching</h3>
+        <p>Talk to a culturally-aware coach that translates jargon into jokes, empathy, and next steps.</p>
+      </div>
+      <div class="pillar">
+        <h3>Digital Ajo/Esusu Pods</h3>
+        <p>Spin up trust-first savings circles with transparent goals and gentle nudges.</p>
+      </div>
+      <div class="pillar">
+        <h3>Cultural Intelligence</h3>
+        <p>Built by and for multicultural hustlers—students, immigrants, aunties, uncles, and small business dreamers.</p>
+      </div>
+      <div class="pillar">
+        <h3>Micro-learning Hub</h3>
+        <p>3-minute lessons with playful prompts and checklists you can finish on your commute.</p>
+      </div>
+      <div class="pillar">
+        <h3>Daily Small Wins</h3>
+        <p>Tiny, proud ticks that stack into a purple-and-white streak you’ll actually brag about.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="founder" class="section">
+    <div class="two-col">
+      <div class="split-card">
+        <h2>From Solomon O., Founder</h2>
+        <p class="micro-copy">Chartered Accountant • Community-first</p>
+        <blockquote>
+          <p>Hi, I’m <strong>Solomon O.</strong>, a Chartered Accountant who has spent the last decade helping everyday people, students, immigrants, multicultural families, and small business owners untangle confusing money journeys. I’ve seen budgets written on napkins, group chats full of anxious bank screenshots, and the quiet pride when someone pays off a debt early.</p>
+          <p>FinKnow is my love letter to everyone who was told money talk isn’t for them. We mix cultural wisdom with modern AI so you never feel judged, only guided. We’ll celebrate your first £10 saved like it’s a festival, and we’ll steady you when life gets windy. You belong here, and your money story deserves to be human, hopeful, and bold.</p>
+        </blockquote>
+      </div>
+      <div class="card">
+        <h3 style="margin-top:0;">Community snapshot</h3>
+        <ul class="list-clean">
+          <li>Students finding clarity without shame.</li>
+          <li>Immigrants translating money talk into everyday language.</li>
+          <li>Multicultural families syncing goals with grace.</li>
+          <li>Small business owners balancing cash flow and calm.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="preview" class="section">
+    <div class="two-col">
+      <div class="card">
+        <h2>See it in 30 seconds</h2>
+        <p class="micro-copy">Figma preview reel</p>
+        <ul class="list-clean">
+          <li>Dashboard pulsing with spending rhythm and goal progress.</li>
+          <li>AI chat answering “Can I afford this trip?” with calm, plain-English steps.</li>
+          <li>Savings pods showing your Ajo/Esusu crew chipping in with milestone confetti.</li>
+          <li>Insights surfacing gentle patterns, not blame.</li>
+          <li>Clean purple-to-white transitions guiding your eyes.</li>
+        </ul>
+      </div>
+      <div class="split-card" style="display:grid; place-items:center; text-align:center;">
+        <div>
+          <p class="micro-copy">Preview frame</p>
+          <div style="height:240px; width:100%; max-width:360px; border-radius:16px; background: linear-gradient(145deg, #4b0082, #2b0a47); box-shadow: var(--card-shadow); margin: 10px auto;"></div>
+          <p style="color: var(--muted); margin: 8px 0 0;">Dashboard • AI Chat • Savings Pods • Insights</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>Waitlist rewards</h2>
+    <p class="micro-copy">Join early, shape the soul of FinKnow, and carry the Founding Member glow forever.</p>
+    <div class="two-col">
+      <div class="card">
+        <ul class="list-clean">
+          <li>Founding Member Badge</li>
+          <li>Lifetime discounted subscription</li>
+          <li>Early beta access</li>
+          <li>Priority access to Crowdcube micro-investor round</li>
+          <li>Digital merch pack (stickers, wallpapers)</li>
+        </ul>
+      </div>
+      <div class="split-card">
+        <h3 style="margin-top:0;">Emotional hook</h3>
+        <p>You’ll be the friend who saw the glow before everyone else. Claim your badge, shape the product, and keep the purple-and-white era rooted in your story.</p>
+        <a class="hero-cta" href="#join">Join the waitlist</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>The Movement</h2>
+    <p class="micro-copy">8 lines. Poetic. Strong identity.</p>
+    <div class="movement">
+      <div class="movement-line">We are ending financial shame.</div>
+      <div class="movement-line">We believe money should feel human.</div>
+      <div class="movement-line">We honour Ajo, Esusu, susu, pardner, and piggy jars alike.</div>
+      <div class="movement-line">We learn out loud so no one stays lost.</div>
+      <div class="movement-line">We are building a culture of small wins.</div>
+      <div class="movement-line">We choose grace over guilt, progress over perfection.</div>
+      <div class="movement-line">We rise together—students, parents, side-hustlers, aunties, and uncles.</div>
+      <div class="movement-line">We rally in purple and white to make wealth feel like home.</div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>Community promise</h2>
+    <div class="card">
+      <p>Join the FinKnow circle and receive <strong>Clarity, Confidence, Community, Accountability, and small daily progress.</strong> Expect check-ins that sound like a friend, challenges that fit your rhythm, and a team that cheers when you pay a bill, save a fiver, or simply rest without financial fear.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>Shareable content previews</h2>
+    <div class="share-cards">
+      <div class="share-card">
+        <h4>5 Money Habits Your Bank Won’t Teach You.</h4>
+        <p>Think cash envelopes meets digital triggers, gentle automation, and culturally-aware reminders. <em>Join the FinKnow Tribe — link in bio.</em></p>
+      </div>
+      <div class="share-card">
+        <h4>Why African/Asian Savings Culture Beats UK Overdrafts.</h4>
+        <p>Pods, rotating pots, and auntie-level accountability beat fees every time. <em>Join the FinKnow Tribe — link in bio.</em></p>
+      </div>
+      <div class="share-card">
+        <h4>Budgeting Is Protection, Not Punishment.</h4>
+        <p>Boundaries that make room for joy, self-care, and community gifts. <em>Join the FinKnow Tribe — link in bio.</em></p>
+      </div>
+    </div>
+  </section>
+
+  <section id="join" class="section cta-final">
+    <h3>Ready to feel proud of your money?</h3>
+    <p>Step into the purple-and-white era of financial calm—built for every culture you carry.</p>
+    <a class="hero-cta" href="#">Join Waitlist</a>
+    <div class="socials">IG • TikTok • LinkedIn • X</div>
+  </section>
+</body>
+</html>
